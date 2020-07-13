@@ -1,0 +1,22 @@
+{
+  "name": "utp2020-6-chat",
+  "version": "1.0.0",
+  "description": "Web-чат (капитан Арсений Зайцев)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmstu-iu9/utp2020-6-chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmstu-iu9/utp2020-6-chat/issues"
+  },
+  "homepage": "https://github.com/bmstu-iu9/utp2020-6-chat#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
