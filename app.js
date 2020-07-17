@@ -1,15 +1,22 @@
 'use strict'
 
 const express = require('express');
+<<<<<<< HEAD
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+=======
+
+let dp = require('./modules/db/index');
+
+>>>>>>> origin/newAPI
 const path = require('path');
 const index = require('./modules/router/index')
 const http = require('http')
 
 const app = express();
 
+<<<<<<< HEAD
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -26,6 +33,22 @@ app.use('/', index);
 
 
 app.listen(3000);
+=======
+>>>>>>> origin/newAPI
 
+app.use(express.static('public'));
 
+<<<<<<< HEAD
 module.exports = app;
+=======
+db.connect('mongodb://localhost:27017',
+  {
+     useUnifiedTopology: true,
+     useNewUrlParser: true
+  }, function (err) {
+  if (err) {
+    return console.log(err);
+  }
+  app.listen(3000);
+})
+>>>>>>> origin/newAPI
