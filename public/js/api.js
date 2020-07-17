@@ -11,11 +11,14 @@ export default class Api{
         let data = "failed";
         await fetch(`${baseURL}/auth`,{
             method: 'POST',
-            body: {
-                id: 1,
-                username: username,
-                password: password
-            }
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+            body: JSON.stringify({
+                "username": username,
+                "password": password
+            })
         }).then(res => {
             console.log(res.body.username, res.body.password);
         }).catch(err => {err})
