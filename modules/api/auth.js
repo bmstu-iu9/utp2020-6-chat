@@ -16,7 +16,15 @@ const db = require('../db/index');
 // })
 
 router.post('/', (req, res)=>{
-    console.log(req.body)
+    console.log(req.body);
+    if (req.body.username.length > 10){
+        res.json({ isCorrect : "true"})
+    }else if (req.body.username === "Петя"){
+        res.json({ isCorrect : true })
+    }else{
+        res.json({ isCorrect : false })
+
+    }
 })
 
 module.exports = router;

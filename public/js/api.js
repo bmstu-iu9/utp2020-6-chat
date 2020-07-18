@@ -5,7 +5,7 @@
 const baseURL = "http://localhost:3000/api";
 
 
-export default class Api{
+class Api{
 
     async auth(username, password) {
         let data = "failed";
@@ -13,16 +13,55 @@ export default class Api{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
               },
             body: JSON.stringify({
                 "username": username,
                 "password": password
             })
-        }).then(res => {
-            console.log(res.body.username, res.body.password);
-        }).catch(err => {err})
+        }).then(response => {
+             data = response.json();
+        }).catch(err => {console.log(err)})
         return data;
-      };
-      
+      }
+
+
+    async register(username, password){
+        let data = "failed";
+        await fetch(`${baseURL}/registration`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "username": username,
+                "password": password
+            })
+        }).then(response => {
+             data = response.json();
+        }).catch(err => {console.log(err)})
+
+
+        return data;
+      }
+    
+    async send(name, to, message){
+        let data = "failed";
+        await fetch(`${baseURL}/send`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "from": name,
+                "to": to,
+                "message": message
+            })
+        }).then(response => {
+             data = response.json();
+        }).catch(err => {console.log(err)})
+        return data;
+    }
 }
+
+
+export default new Api();

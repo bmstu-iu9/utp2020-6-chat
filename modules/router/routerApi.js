@@ -9,8 +9,6 @@ const send = require("../api/send");
 
 const logout = require("../api/logout");
 
-router.get('/', ()=>{})
-
 router.use('/auth', auth);
 
 router.use('/registration', registration);
