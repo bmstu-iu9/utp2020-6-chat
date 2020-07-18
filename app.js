@@ -24,23 +24,21 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     next();
   });
-  
+
 app.use(bodyParser.json());
 
 app.use('/', index);
 
-app.listen(3000);
+//app.listen(3000);
 
-// db.connect('mongodb://localhost:27017',
-//   {
-//      useUnifiedTopology: true,
-//      useNewUrlParser: true
-//   }, function (err) {
-//   if (err) {
-//     return console.log(err);
-//   }
-//   app.listen(3000);
-// })
+db.connect('mongodb://localhost:27017', (err) => {
+  if (err) {
+    console.log(`app.js : ошибка при попытке вызова connect к db\n`);
+    return console.log(err);
+  }
+  console.log(`api запущен\n`);
+  app.listen(3000);
+})
 
 
 module.exports = app;
