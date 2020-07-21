@@ -19,7 +19,7 @@ let connect = (url, done) =>{
       console.log("ошибка при подключении к mongo\n")
       return done(err);
     }
-    state.db=client.db('myAPI');
+    state.db=client.db('TestBD');
     console.log("удачное подключение к mongo\n")
     done();
   })

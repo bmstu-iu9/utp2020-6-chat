@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   });
 
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', index);
 
 //app.listen(3000);
@@ -36,8 +36,9 @@ db.connect('mongodb://localhost:27017', (err) => {
     console.log(`app.js : ошибка при попытке вызова connect к db\n`);
     return console.log(err);
   }
-  console.log(`api запущен\n`);
-  app.listen(3000);
+  app.listen(3000, ()=> {
+    console.log(`api запущен\n`);
+  });
 })
 
 
