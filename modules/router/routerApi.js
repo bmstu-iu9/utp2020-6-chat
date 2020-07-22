@@ -9,7 +9,9 @@ const send = require("../api/send");
 
 const logout = require("../api/logout");
 
-const db = require("../api/db")
+const db = require("../api/db");
+
+const user = require("../api/user");
 
 router.get('/', ()=>{})
 
@@ -22,5 +24,7 @@ router.use('/send', send);
 router.use('/logout', logout);
 
 router.use('/db', db);
+
+router.use('/user', user);
 
 module.exports = router;
