@@ -9,15 +9,12 @@ const send = require("../api/send");
 
 const logout = require("../api/logout");
 
-<<<<<<< HEAD
-=======
 const db = require("../api/db");
 
 const user = require("../api/user");
 
 router.get('/', ()=>{})
 
->>>>>>> origin/pre-main
 router.use('/auth', auth);
 
 router.use('/registration', registration);
