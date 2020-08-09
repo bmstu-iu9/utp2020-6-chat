@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
   res.sendfile("public/html/index.html");
 });
 
+router.use('/reg', (req, res, next) => res.sendfile("public/html/register.html"));
+
+
+
 router.use('/api', routerApi);
 
 module.exports = router;
