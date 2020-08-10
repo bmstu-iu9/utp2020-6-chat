@@ -19,7 +19,3 @@ body{
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
-#login{
-        border: none;
-        border-bottom: 2px solid red;
-}

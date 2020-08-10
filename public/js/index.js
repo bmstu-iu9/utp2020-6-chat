@@ -7,10 +7,18 @@ import api from './api.js';
 
 
 
-login.onchange = (pidor)=> {alert(pidor.type)};
 
 
-login_button.onclick = () => {api.auth("vasya", "pupkin").then((res)=>{ console.log(res)})};
+login_button.onclick = () => {
+    let name = document.getElementById("login").value;
+    let password = document.getElementById("password").value;
+    api.auth(name, password)
+    .then((res)=>{
+        if(res.isKnownUser=== true) 
+            {alert("Заходите");}
+        else{
+            alert("Неверный пароль");
+        }})};
 
 
 iAmNew.onclick = () => {document.location.href="http://localhost:3000/reg"};
