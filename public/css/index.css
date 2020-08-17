@@ -72,6 +72,17 @@ body{
     border-color: #77297e;
 }
 
+#register_button{
+    width: 50%;
+    height: 30px;;
+    margin-top: 45px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    font-size: 22px;;
+    color: #77297e;
+    border-color: #77297e;
+}
+
 #or{
     font-family: 'Roboto';
     margin-top: 40px;
@@ -84,4 +95,8 @@ body{
     font-weight: normal;
     line-height: 30px;
     margin-top: 40px;
+}
+
+#back{
+    border-radius: 30px;
 }
