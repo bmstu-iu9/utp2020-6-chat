@@ -10,11 +10,13 @@
 </head>
 <body>
     <div class="login-block">
-        <input id="login"/>
-        <input id="password"/>
-        <button id="login_button">Нажмите кнопку</button>
+        <p id="welcome"> Welcome to CyberVeche</p>
+        <p><input id="login" type = "login" placeholder="Username" required/></p>
+        <p><input id="password" type = "password" placeholder="Password" required/></p>
+        <p><button id="login_button" type = "submit" formmethod="post" formaction="../js/index.js">Login</button></p>
+        <p id = "or"> or </p>
         <div class="register_field">
-            <p id = "iAmNew">I am new</p>
+            <a href = "register.html" id = "iAmNew">I am new</a>
         </div>
         
     </div>
