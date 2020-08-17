@@ -15,16 +15,15 @@ router.post('/', (req,res)=>{
       else {
         if (doc) {
           console.log(`user ${JSON.stringify(req.body.username)} найден` );
-          res.sendStatus(200);
-          return res.isKnownUser=true;
+          res.redirect("public/html/chat.html")
         }
         else {
           console.log(`user ${JSON.stringify(req.body.username)} не найден` );
-          res.sendStatus(200);
-          return res.isKnownUser=false;
+          res.json({isKnownUser: false});
         }
       }
     });
   });
 
 module.exports = router;
+     
