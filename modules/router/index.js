@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   res.sendfile("public/html/index.html");
 });
 
-router.use('/reg', (req, res, next) => res.sendfile("public/html/register.html"));
+router.get('/reg', (req, res, next) => res.sendfile("public/html/register.html"));
 
 
 
