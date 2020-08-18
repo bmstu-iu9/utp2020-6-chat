@@ -19,6 +19,7 @@ router.post('/', (req,res)=>{
         }
         else {
           console.log(`user ${JSON.stringify(req.body.username)} не найден` );
+          //res.redirect("public/html/incorrect.html");
           res.json({isKnownUser: false});
         }
       }

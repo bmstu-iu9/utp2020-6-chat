@@ -17,7 +17,8 @@ login_button.onclick = () => {
         if(res.isKnownUser=== true) 
             {alert("Заходите");}
         else{
-            alert("Неверный пароль");
+            document.location.href="http://localhost:3000/inc";
+            //alert("Неверный пароль");
         }})};
 
 

@@ -6,16 +6,20 @@
     <title>CYBERVECHE</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href='../css/index.css' rel='stylesheet' type="text/css">
-    
+
 </head>
 <body>
     <div class="login-block">
-        <p id="welcome"> Registration</p>
+        <p id="welcome"> Welcome to CyberVeche</p>
+        <p id="incorrect">Incorrect Username or Password</p>
         <p><input id="login" type = "login" placeholder="Username" required/></p>
         <p><input id="password" type = "password" placeholder="Password" required/></p>
-        <p><input id="password" type = "password" placeholder="Re-type password" required/></p>
-        <button onclick="document.location='http://localhost:3000/'" id = "login_button">Back</button> 
-        <button id="registration_button" type = "submit" formmethod="post">Next</button>
+        <p><button id="login_button" type = "submit" formmethod="post" formaction="../js/index.js">Login</button></p>
+        <p id = "or"> or </p>
+        <div class="register_field">
+            <a href = "reg" id = "iAmNew">I am new</a>
+        </div>
+
     </div>
     <script type="module" src="../js/register.js"></script>
 </body>
