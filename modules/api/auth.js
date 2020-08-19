@@ -28,7 +28,3 @@ router.post('/', (req,res)=>{
   });
 
 module.exports = router;
-<<<<<<< HEAD
-=======
-     
->>>>>>> 754833edd15cd3c2bad33963d06761c46aa07b6e
