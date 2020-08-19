@@ -12,6 +12,6 @@ registration_button.onclick = async () =>  {
     if (password === password2 && login.length != 0 ){
         api.register(login, password);
     }else{
-       alert("Пороль не совпадает"); 
+       alert("Пароль не совпадает");
     }
 }

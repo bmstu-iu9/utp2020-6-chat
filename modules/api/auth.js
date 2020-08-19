@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const db = require('../db/index');
 
 router.post('/', (req,res)=>{
-    db.get().collection('users').findOne({ username: req.body.username}, (err, doc) =>{
+    db.get().collection('users').findOne({ username: req.body.username, password: req.body.password}, (err, doc) =>{
       if (err) {
         console.log(err);
         return res.sendStatus(500);
@@ -15,6 +15,7 @@ router.post('/', (req,res)=>{
       else {
         if (doc) {
           console.log(`user ${JSON.stringify(req.body.username)} найден` );
+
           res.redirect("public/html/chat.html")
         }
         else {
@@ -26,4 +27,3 @@ router.post('/', (req,res)=>{
   });
 
 module.exports = router;
-     

@@ -7,10 +7,9 @@ const bodyParser = require("body-parser");
 router.use(express.static('public'));
 router.use(bodyParser.json());
 
-router.get('/', function(req, res, next) {
-  res.sendfile("public/html/index.html");
-});
-
+router.get('/', (req, res, next) => {
+  res.sendfile("public/html/index.html"));
+}
 router.get('/reg', (req, res, next) => res.sendfile("public/html/register.html"));
 
 
