@@ -20,6 +20,7 @@ router.post('/', (req,res)=>{
         }
         else {
           console.log(`user ${JSON.stringify(req.body.username)} не найден` );
+          //res.redirect("public/html/incorrect.html");
           res.json({isKnownUser: false});
         }
       }
@@ -27,3 +28,7 @@ router.post('/', (req,res)=>{
   });
 
 module.exports = router;
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 754833edd15cd3c2bad33963d06761c46aa07b6e
