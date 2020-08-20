@@ -10,6 +10,7 @@ registration_button.onclick = async () =>  {
     let password = document.getElementById("password").value;
     let password2 = document.getElementById("password_2").value;
     if (password === password2 && login.length != 0 ){
+      console.log(0);
         api.register(login, password);
     }else{
        alert("Пароль не совпадает");
