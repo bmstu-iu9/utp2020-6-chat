@@ -93,6 +93,17 @@ body{
     border-color: #77297e;
 }
 
+#back_button{
+    width: 30%;
+    height: 30px;;
+    margin-top: 45px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    font-size: 22px;;
+    color: #77297e;
+    border-color: #77297e;
+}
+
 #next_button{
     width: 30%;
     height: 30px;;

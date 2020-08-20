@@ -24,7 +24,10 @@ login_button.onclick = () => {
     api.auth(name, password)
     .then((res)=>{
         if(res.isKnownUser=== true)
-            {alert("Заходите");}
+            {
+              document.location.href="http://localhost:3000/chat";
+              alert("Заходите");
+            }
         else{
             document.location.href="http://localhost:3000/inc";
             //alert("Неверный пароль");

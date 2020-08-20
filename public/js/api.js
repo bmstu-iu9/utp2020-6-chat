@@ -10,7 +10,7 @@ class Api{
     async auth(username, password) {
         let data = "failed";
         console.log(98);
-        alert(123);
+        //alert(123);
         await fetch(`${baseURL}/auth`,{
             method: 'POST',
             headers: {
