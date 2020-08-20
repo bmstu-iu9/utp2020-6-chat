@@ -61,6 +61,16 @@ body{
     border-bottom: 2px solid rgb(117, 77, 77);
 }
 
+#password_2{
+    width: 60%;
+    margin-top: 40px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: 100;
+    border: none;
+    border-bottom: 2px solid rgb(117, 77, 77);
+}
+
 #login_button{
     width: 30%;
     height: 30px;;
