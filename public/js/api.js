@@ -9,6 +9,8 @@ class Api{
 
     async auth(username, password) {
         let data = "failed";
+        console.log(98);
+        alert(123);
         await fetch(`${baseURL}/auth`,{
             method: 'POST',
             headers: {
@@ -20,6 +22,7 @@ class Api{
             })
         }).then(response => {
              data = response.json();
+             //return data;
         }).catch(err => {console.log(err)})
         return data;
       }
@@ -27,6 +30,7 @@ class Api{
 
     async register(username, password){
         let data = "failed";
+        console.log("FIR");
         await fetch(`${baseURL}/registration`,{
             method: 'POST',
             headers: {
@@ -43,7 +47,7 @@ class Api{
 
         return data;
       }
-    
+
     async send(name, to, message){
         let data = "failed";
         await fetch(`${baseURL}/send`,{

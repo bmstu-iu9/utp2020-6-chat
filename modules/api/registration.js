@@ -7,6 +7,7 @@ const db = require('../db/index');
 
 
 router.post('/', (req, res)=> {
+  console.log("SEC");
   let user = {
     username: req.body.username,
     // age: req.body.age,
@@ -25,8 +26,8 @@ router.post('/', (req, res)=> {
   })
 })
 
-router.post('/', (req, res)=>{
-    console.log(req.body);
-});
+//router.post('/', (req, res)=>{
+//    console.log(req.body);
+//});
 
 module.exports = router;
