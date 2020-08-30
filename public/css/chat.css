@@ -1,0 +1,98 @@
+@font-face{
+    font-family: 'olympic';
+    src: url('fonts/olympiccarrierchromeital.ttf');
+}
+
+@font-face{
+    font-family: 'Roboto';
+    src: url('fonts/Roboto.ttf');
+}
+
+body{
+    background-image: url("../images/AdobeStock_235492190_web_0.png");
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+}
+
+#palka{
+    position: absolute;
+    min-width: 26%;
+    height: 0px;
+    left: 24px;
+    top: 117px;
+    margin-left: 0 px;
+    border: 2px solid #FA00FF;
+    margin-bottom: 0;
+}
+
+#dialogues{
+    font-size: 75px;
+    line-height: 67px;
+    background-color: rgba(67, 23, 87, 0.5);
+    float: left;
+    width: 30%;
+    height: 100vh;
+    border-right: 3px solid #FA00FF;
+}
+
+#main{
+    margin-left:30%;
+    background-color: rgba(67, 23, 87, 0);
+}
+
+#chats{
+    font-family: olympic;
+    color:  #EB00FF;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#searchbar{
+    padding-top: 15%;
+    
+    color: red;
+    
+}
+
+#search{
+    background: #741C51;
+    border-color: #741C51;
+    border-radius: 9px;
+    margin-left: 5%;
+    width: 60%;
+    height: 30px;
+    margin-top:10%;
+}
+
+#search_button{
+    margin-top: 10%;
+    border-color: #741C51;
+    background-color: #741C51;
+    border-radius: 9px;
+    width: 25%;
+    height: 25px;
+}
+
+#logged_as{
+    float: right;
+    color: white;
+    font-size: 28px;
+    line-height: 33px;
+}
+
+
+#messages_example{
+    height: 111px;
+}
+
+#messages{
+    padding-top: 10px;
+}
+
+#icon{
+    padding-left: 41px;
+    width: 99px;
+    height: 99px;   
+}

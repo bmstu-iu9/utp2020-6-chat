@@ -10,16 +10,13 @@
 </head>
 <body>
     <div class="login-block">
-        <p id="welcome"> Welcome to CyberVeche</p>
-        <p id="incorrect" hidden>Incorrect Username or Password</p>
+        <p id="welcome"> Registration</p>
         <p><input id="login" type = "login" placeholder="Username" required/></p>
         <p><input id="password" type = "password" placeholder="Password" required/></p>
-        <p><button id="login_button" type = "submit" formmethod="post" formaction="../js/index.js">Login</button></p>
-        <p id = "or"> or </p>
-        <div class="register_field">
-            <a href = "reg" id = "iAmNew">I am new</a>
-        </div>
+        <p><input id="password_2" type = "password" placeholder="Re-type password" required/></p>
+        <button onclick="document.location='http://localhost:3000/'" id = "back_button">Back</button> 
+        <button id="registration_button" type = "submit" formmethod="post">Next</button>
     </div>
-    <script type="module" src="../js/index.js"></script>
+    <script type="module" src="../js/register.js"></script>
 </body>
 </html>
