@@ -26,11 +26,9 @@ login_button.onclick = () => {
         if(res.isKnownUser=== true)
             {
               document.location.href="http://localhost:3000/chat";
-              alert("Заходите");
             }
         else{
-            document.location.href="http://localhost:3000/inc";
-            //alert("Неверный пароль");
+            document.getElementById("incorrect").hidden = false;
         }})};
 
 

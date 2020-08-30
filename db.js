@@ -34,6 +34,8 @@ const ChatScheme = new Schema({
         }
     }]
 })
+
+
 const Chat = mongoose.model("Chat", ChatScheme);
 
 module.exports = mongoose.model('User', UserScheme);
@@ -51,7 +53,7 @@ MongoClient.connect((err, client) => {
     const db = client.db("web-chat");
 });
 
-app.get("/api/users/:id", (req, res) => {
+app.get('/api/users/:id', (req, res) => {
     const id = req.params.id;
     User.findOne({_id: id}, (err, user) => {
         if(err) return console.log(err);
