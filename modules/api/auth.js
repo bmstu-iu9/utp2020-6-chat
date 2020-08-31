@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 const db = require('../db/index');
 
 router.post('/', (req,res)=>{
-    db.get().collection('users').findOne({ username: req.body.username, password: req.body.password}, (err, doc) =>{
+    const collection = req.app.locals.collectionUsers;
+    collection.findOne({ username: req.body.username, password: req.body.password}, (err, doc) =>{
       if (err) {
         console.log(err);
         return res.sendStatus(500);

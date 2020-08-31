@@ -11,7 +11,6 @@ router.get('/', (req, res, next) => res.sendfile("public/html/index.html"));
 
 router.get('/reg', (req, res, next) => res.sendfile("public/html/register.html"));
 
-router.get('/inc', (req, res, next) => res.sendfile("public/html/incorrect.html"));
 
 router.get('/chat', (req, res, next) => res.sendfile("public/html/chat.html"));
 

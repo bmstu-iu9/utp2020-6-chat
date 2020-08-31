@@ -18,13 +18,14 @@ document.getElementById("password").value=getCookie("password");
 login_button.onclick = () => {
     let name = document.getElementById("login").value;
     let password = document.getElementById("password").value;
-    let cookie = `login=${name}; password=${password}`;
-    document.cookie=`login=${name}`;
-    document.cookie=`password=${password}`;
+
     api.auth(name, password)
     .then((res)=>{
         if(res.isKnownUser=== true)
             {
+              document.cookie=`login=${name}`;
+              document.cookie=`password=${password}`;
+              document.cookie =`session=${true}`;
               document.location.href="http://localhost:3000/chat";
             }
         else{
