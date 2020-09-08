@@ -14,6 +14,14 @@ function getCookie(name) {
 
 document.getElementById("login").value=getCookie("login");
 document.getElementById("password").value=getCookie("password");
+if (getCookie("login")!=""&& getCookie("password")) {
+  api.auth(getCookie("login"), getCookie("password")).then((res)=> {
+    if(res.isKnownUser=== true)
+        {
+          document.location.href="http://localhost:3000/chat";
+        }
+  })
+}
 
 login_button.onclick = () => {
     let name = document.getElementById("login").value;
