@@ -21,21 +21,18 @@ window.onload = ( )=>{
     api.getAllUsers().then(a =>  a.forEach(elem => {
       let divMessage = document.createElement('div');
       divMessage.className = 'messages';
-      let divLogin = document.createElement('div');
-      divLogin.className = 'login';
+      let divUserName = document.createElement('div');
+      divUserName.className = 'userName';
       let divDate = document.createElement('div');
       divDate.className = 'date_time';
       let divText = document.createElement('div');
       divText.className = 'text_of_message';
       let divicon = document.createElement('div');
       divicon.className = 'icon';
-        divMessage.appendChild(divLogin);
-        divMessage.appendChild(divText);
-        divMessage.appendChild(divDate);
-        divMessage.appendChild(divicon);
-
-        document.getElementById("messages").appendChild(divMessage);
-
-
+      divMessage.appendChild(divicon);
+      divMessage.appendChild(divText);
+      divMessage.appendChild(divDate);
+      divMessage.appendChild(divUserName);
+      document.getElementById("messages").appendChild(divMessage);
     }));
 }

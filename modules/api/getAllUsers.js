@@ -6,8 +6,6 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 
-const db = require('../db/index');
-
 router.get('/', (req, res) => {
     const collection = req.app.locals.collectionUsers;
     collection.find().toArray(function(err, users){

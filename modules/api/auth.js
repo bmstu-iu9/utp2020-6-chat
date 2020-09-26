@@ -4,8 +4,6 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-const db = require('../db/index');
-
 router.post('/', (req,res)=>{
     const collection = req.app.locals.collectionUsers;
     collection.findOne({ username: req.body.username, password: req.body.password}, (err, doc) =>{

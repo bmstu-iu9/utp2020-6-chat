@@ -12,6 +12,13 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : "";
 }
 
+window.onload = ()=>{
+  if(getCookie('session') !== ""){
+    document.location.href = "http://localhost:3000/chat";
+};
+}
+
+
 document.getElementById("login").value=getCookie("login");
 document.getElementById("password").value=getCookie("password");
 
