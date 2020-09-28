@@ -79,6 +79,24 @@ class Api{
        }).catch(err => {console.log(err)})
        return data;
     }
+
+
+    async getMessages(login, password){
+        let data = "failed";
+        await fetch(`${baseURL}/getMessages`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "login" : login,
+                "password" : password
+            })
+        }).then(response => {
+            data = response.json();
+       }).catch(err => {console.log(err)})
+       return data;
+    }
 }
 
 

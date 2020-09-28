@@ -11,28 +11,36 @@ function getCookie(name) {
   }
 
 
-document.getElementById('bbb').onclick = ()=> {}; 
 
-window.onload = ( )=>{
+let users = []
+
+let messages = []
+
+
+window.onload = ()=>{
     if(getCookie('session') === ""){
         document.location.href = "http://localhost:3000";
     };
-    let friends = [];
-    api.getAllUsers().then(a =>  a.forEach(elem => {
-      let divMessage = document.createElement('div');
-      divMessage.className = 'messages';
-      let divUserName = document.createElement('div');
-      divUserName.className = 'userName';
-      let divDate = document.createElement('div');
-      divDate.className = 'date_time';
-      let divText = document.createElement('div');
-      divText.className = 'text_of_message';
-      let divicon = document.createElement('div');
-      divicon.className = 'icon';
-      divMessage.appendChild(divicon);
-      divMessage.appendChild(divText);
-      divMessage.appendChild(divDate);
-      divMessage.appendChild(divUserName);
-      document.getElementById("messages").appendChild(divMessage);
-    }));
+    api.getMessages(getCookie('login'), getCookie('password')).then(a => messages.push(a));
+    console.log(messages);
+    api.getAllUsers().then(a => users.push(a))
+    console.log(users);
+
+    // api.getMessages().then(a =>  a.forEach(elem => {
+    //   let divMessage = document.createElement('div');
+    //   divMessage.className = 'messages';
+    //   let divUserName = document.createElement('div');
+    //   divUserName.className = 'userName';
+    //   let divDate = document.createElement('div');
+    //   divDate.className = 'date_time';
+    //   let divText = document.createElement('div');
+    //   divText.className = 'text_of_message';
+    //   let divicon = document.createElement('div');
+    //   divicon.className = 'icon';
+    //   divMessage.appendChild(divicon);
+    //   divMessage.appendChild(divText);
+    //   divMessage.appendChild(divDate);
+    //   divMessage.appendChild(divUserName);
+    //   document.getElementById("messages").appendChild(divMessage);
+    // }));
 }
