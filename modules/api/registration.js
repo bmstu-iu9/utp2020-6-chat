@@ -7,18 +7,43 @@ const bodyParser = require('body-parser');
 router.post('/', (req, res)=> {
   console.log("SEC");
   let user = {
+    name: "DefaultName",
+    icon: -1,
     username: req.body.username,
     password: req.body.password
+
   };
   const collection = req.app.locals.collectionUsers;
+  const collectionChat= req.app.locals.collectionChat;
   collection.insertOne(user, (err, result) => {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
     }
     console.log(`user ${user.username} добавлен в БД`);
-    return res.sendStatus(200);
   })
+  let id
+  collection.findOne({username: user.username}, (err, doc) => {
+    if (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    id=doc._id
+    console.log(id);
+    let userChat = {
+      _id: id,
+      login: user.username,
+      messages :[]
+    }
+    collectionChat.insertOne(userChat, (err, result)=> {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      console.log(`user ${user.username} добавлен в БД chat`);
+      return res.sendStatus(200);
+    })
+  })
+
 })
 module.exports = router;
-
