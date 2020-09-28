@@ -17,6 +17,10 @@ const getAllUsers = require("../api/getAllUsers");
 
 const getMessages = require("../api/getMessages");
 
+const addMessage = require("../api/addMessage");
+
+const delMessage = require("../api/delMessage");
+
 router.get('/', ()=>{})
 
 router.use('/auth', auth);
@@ -32,5 +36,9 @@ router.use('/user', user);
 router.use('/getAllUsers', getAllUsers);
 
 router.use('/getMessages', getMessages);
+
+router.use('/addMessage', addMessage);
+
+router.use('/delMessage', delMessage);
 
 module.exports = router;
