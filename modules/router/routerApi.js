@@ -21,6 +21,12 @@ const addMessage = require("../api/addMessage");
 
 const delMessage = require("../api/delMessage");
 
+const changeName = require("../api/changeName");
+
+const changeIcon = require("../api/changeIcon");
+
+const changePassword = require("../api/changePassword")
+
 router.get('/', ()=>{})
 
 router.use('/auth', auth);
@@ -40,5 +46,11 @@ router.use('/getMessages', getMessages);
 router.use('/addMessage', addMessage);
 
 router.use('/delMessage', delMessage);
+
+router.use('/changeName', changeName);
+
+router.use('/changePassword', changePassword);
+
+router.use('/changeIcon', changeIcon);
 
 module.exports = router;
