@@ -12,6 +12,13 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : "";
 }
 
+window.onload = ()=>{
+  if(getCookie('session') !== ""){
+    document.location.href = "http://localhost:3000/chat";
+};
+}
+
+
 document.getElementById("login").value=getCookie("login");
 document.getElementById("password").value=getCookie("password");
 if (getCookie("login")!=""&& getCookie("password")) {
@@ -26,19 +33,18 @@ if (getCookie("login")!=""&& getCookie("password")) {
 login_button.onclick = () => {
     let name = document.getElementById("login").value;
     let password = document.getElementById("password").value;
-    let cookie = `login=${name}; password=${password}`;
-    document.cookie=`login=${name}`;
-    document.cookie=`password=${password}`;
+
     api.auth(name, password)
     .then((res)=>{
         if(res.isKnownUser=== true)
             {
+              document.cookie=`login=${name}`;
+              document.cookie=`password=${password}`;
+              document.cookie =`session=${true}`;
               document.location.href="http://localhost:3000/chat";
-              alert("Заходите");
             }
         else{
-            document.location.href="http://localhost:3000/inc";
-            //alert("Неверный пароль");
+            document.getElementById("incorrect").hidden = false;
         }})};
 
 
