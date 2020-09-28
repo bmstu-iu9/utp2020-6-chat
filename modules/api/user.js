@@ -5,10 +5,9 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const ObjectID= require('mongodb').ObjectID;
 
-const db = require('../db/index');
-
 router.get('/:id', (req,res)=>{
-    db.get().collection('users').findOne({  _id: ObjectID(req.params.id)}, (err, doc) =>{
+  const collection = req.app.locals.collectionUsers;
+  collection.findOne({  _id: ObjectID(req.params.id)}, (err, doc) =>{
       doc.password=undefined;
       if (err) {
         console.log(err);

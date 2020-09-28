@@ -6,22 +6,44 @@
 	<title>CYBERVECHE</title>
 </head>
 <body>
-    <script src="../js/chat.js"></script>
+    <div id="search_friends">
+        <h2>Search for Friends</h2>
+        <input type="text" id = "search_in" placeholder="My friend is...">
+        <div id="Friends">
+        </div>
+    </div>
         <div id="dialogues">
             <div id = "chats">Chats</div>
             <div id="palka"></div>
             <div id="serchbar">
                 <input type="text" id = "search" placeholder="Find people or message..">
-                <button id = "search_button" type="submit">Search</button>
-            </div>
-            <div id="messages">
-                <div id="messages_example">
-                    <div id="icon"></div>
+                <div id="help">
+                    <svg width="59" height="32" viewBox="0 0 59 32" fill="none" xmlns="http://www.w3.org/2000/svg" id ="testtest" >
+                        <path id="help" d="M19.6667 12.3077H12.2917V4.92308H7.375V12.3077H0V17.2308H7.375V24.6154H12.2917V17.2308H19.6667V12.3077ZM44.25 14.7692C48.3308 14.7692 51.6004 11.4708 51.6004 7.38462C51.6004 3.29846 48.3308 0 44.25 0C43.4633 0 42.7012 0.123077 42.0129 0.344615C43.4142 2.33846 44.2254 4.75077 44.2254 7.38462C44.2254 10.0185 43.3896 12.4062 42.0129 14.4246C42.7012 14.6462 43.4633 14.7692 44.25 14.7692ZM31.9583 14.7692C36.0392 14.7692 39.3087 11.4708 39.3087 7.38462C39.3087 3.29846 36.0392 0 31.9583 0C27.8775 0 24.5833 3.29846 24.5833 7.38462C24.5833 11.4708 27.8775 14.7692 31.9583 14.7692ZM48.2325 20.0862C50.2729 21.8831 51.625 24.1723 51.625 27.0769V32H59V27.0769C59 23.2862 53.1738 20.9477 48.2325 20.0862ZM31.9583 19.6923C27.0417 19.6923 17.2083 22.1538 17.2083 27.0769V32H46.7083V27.0769C46.7083 22.1538 36.875 19.6923 31.9583 19.6923Z" fill="white"/>
+                    </svg>
                 </div>
             </div>
+            <!-- <div id="messages">
+                <div id = "user">
+                    <div id = "ava">
+                        <img src = "https://klike.net/uploads/posts/2019-06/1561009159_3.jpg" width = "60%" height = "60%" border-radius = "30px">
+                    </div>
+                    <div id = "info">
+                        <div id = "username">
+                            <span id = "login">Jerome</span>
+                            <span id="time">23:04</span>
+                        </div>
+                        <div id = "last_mess">
+                            Thanks
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div id="main">
-            <div id= "logged_as">Logged as</div>
+            <div id= "logged_as"></div>
         </div>
+        
+        <script type="module" src="../js/chat.js"></script>
 </body>
 </html>

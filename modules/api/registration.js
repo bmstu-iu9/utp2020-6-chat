@@ -3,31 +3,47 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-const db = require('../db/index');
-
 
 router.post('/', (req, res)=> {
   console.log("SEC");
   let user = {
+    name: "DefaultName",
+    icon: -1,
     username: req.body.username,
-    // age: req.body.age,
-    // name: req.body.name,
-    // surname: req.body.surname,
-    // avatar: req.body.avatar,
     password: req.body.password
+
   };
-  db.get().collection('users').insertOne(user, (err, result) => {
+  const collection = req.app.locals.collectionUsers;
+  const collectionChat= req.app.locals.collectionChat;
+  collection.insertOne(user, (err, result) => {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
     }
     console.log(`user ${user.username} добавлен в БД`);
-    return res.sendStatus(200);
   })
+  let id
+  collection.findOne({username: user.username}, (err, doc) => {
+    if (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    id=doc._id
+    console.log(id);
+    let userChat = {
+      _id: id,
+      login: user.username,
+      messages :[]
+    }
+    collectionChat.insertOne(userChat, (err, result)=> {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      console.log(`user ${user.username} добавлен в БД chat`);
+      return res.sendStatus(200);
+    })
+  })
+
 })
-
-//router.post('/', (req, res)=>{
-//    console.log(req.body);
-//});
-
 module.exports = router;

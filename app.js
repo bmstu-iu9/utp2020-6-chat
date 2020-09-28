@@ -1,21 +1,14 @@
 'use strict'
 
 const express = require('express');
-
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
+const MongoClient= require('mongodb').MongoClient;
 const session = require("express-session");
-
-const db = require("./modules/db/index");
-
-
 const path = require('path');
 const index = require('./modules/router/index')
 const http = require('http')
-
 const app = express();
-
 app.use(express.static('public'));
 
 
@@ -33,13 +26,22 @@ app.use('/', index);
 
 
 
+const mongoClient = new MongoClient("mongodb://localhost:27017/", { useUnifiedTopology: true, useNewUrlParser: true });
 
+let dbClient;
 
-db.connect('mongodb://localhost:27017', (err) => {
+mongoClient.connect( (err, client) => {
   if (err) {
     console.log(`app.js : ошибка при попытке вызова connect к db\n`);
     return console.log(err);
   }
+
+  dbClient = client;
+
+  app.locals.collectionUsers = client.db("DB").collection("users");
+  
+  app.locals.collectionChat = client.db("DB").collection("chat");
+
   app.listen(3000, ()=> {
     console.log(`api запущен\n`);
   });
