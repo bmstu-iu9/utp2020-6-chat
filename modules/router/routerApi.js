@@ -15,6 +15,8 @@ const user = require("../api/user");
 
 const getAllUsers = require("../api/getAllUsers");
 
+const getMessages = require("../api/getMessages");
+
 router.get('/', ()=>{})
 
 router.use('/auth', auth);
@@ -29,5 +31,6 @@ router.use('/user', user);
 
 router.use('/getAllUsers', getAllUsers);
 
-module.exports = router;
+router.use('/getMessages', getMessages);
 
+module.exports = router;
