@@ -65,10 +65,40 @@ body{
     height: 30px;
     margin-top:10%;
 }
+#search_in{
+    background: #741C51;
+    border-color: #741C51;
+    border-radius: 9px;
+    width: 80%;
+    height: 30px;
+}
 
+.help{
+    vertical-align: bottom;
+    display: inline;
+    cursor: pointer;
+}
 #help{
     vertical-align: bottom;
     display: inline;
+}
+
+#search_friends{
+    position: absolute;
+    width: 30%;
+    height: 70%;
+    left: 10%;
+    top: 25%;
+    display: none;
+    background: #401556;
+    border: 2px solid #00C2FF;
+    box-sizing: border-box;
+    border-radius: 27px;
+    text-align: center;
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
 }
 
 #search_button{
@@ -80,11 +110,21 @@ body{
     height: 25px;
 }
 
+#messange_block{
+    align: center;
+    width: 60%;
+    height: 99px;
+    /* Pink style */
+
+    background: rgba(233, 68, 236, 0.68);
+}
+
 #logged_as{
     float: right;
     color: white;
     font-size: 28px;
     line-height: 33px;
+    position: absolute;
 }
 
 
@@ -93,6 +133,9 @@ body{
 }
 
 #messages{
+    padding-top: 10px;
+}
+#Friends{
     padding-top: 10px;
 }
 

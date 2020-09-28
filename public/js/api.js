@@ -84,7 +84,7 @@ class Api{
     async getMessages(login, password){
         let data = "failed";
         await fetch(`${baseURL}/getMessages`,{
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
               },
