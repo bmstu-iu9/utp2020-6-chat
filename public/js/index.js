@@ -33,7 +33,6 @@ if (getCookie("login")!=""&& getCookie("password")) {
 login_button.onclick = () => {
     let name = document.getElementById("login").value;
     let password = document.getElementById("password").value;
-
     api.auth(name, password)
     .then((res)=>{
         if(res.isKnownUser=== true)
