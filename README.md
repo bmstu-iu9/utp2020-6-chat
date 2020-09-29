@@ -1,14 +1,15 @@
-#CyberVeche
+# CyberVeche
+Клиент-серверное приложение "CyberVeche", реализованное в рамках учебной практики студентами первого курса кафедры ИУ9 МГТУ им. Н. Э. Баумана.
+***
 
-
-##Разработчики:
-	*Зайцев Арсений (teamlead, back-end): @MuonSevasch(https://github.com/MuonSevasch)
-	*Горбатов Никита (back-end, database): @GorbatovNik(https://github.com/GorbatovNik)
-	*Петухова Мария (front-end): @petukhova-m(https://github.com/petukhova-m)
-	*Чубаров Арсен (front-end): @chubarovars(https://github.com/chubarovars)
-	*Жакия Акжол (front-end): @ZhakiyaK(https://github.com/ZhakiyaK)
-	
-##Инструкция к запуску:
+## Разработчики:
+	-Зайцев Арсений (teamlead, back-end): [MuonSevasch](https://github.com/MuonSevasch)
+	-Горбатов Никита (back-end, database): [GorbatovNik](https://github.com/GorbatovNik)
+	-Петухова Мария (front-end): [petukhova-m](https://github.com/petukhova-m)
+	-Чубаров Арсен (front-end): [chubarovars](https://github.com/chubarovars)
+	-Жакия Акжол (front-end): [ZhakiyaK](https://github.com/ZhakiyaK)
+***
+## Инструкция к запуску:
 1. Клонируйте данный репозиторий:
 ```
 git clone https://github.com/bmstu-iu9/utp2020-6-chat
@@ -26,4 +27,8 @@ npm install
 4. Запустите приложение:
 ```
 node app.js
+```
+5. В браузере откройте страницу:
+```
+http://localhost:3000/
 ```
