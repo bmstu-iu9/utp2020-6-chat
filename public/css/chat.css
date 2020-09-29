@@ -19,7 +19,7 @@ body{
 
 #palka{
     position: absolute;
-    min-width: 26%;
+    min-width: 22%;
     height: 0px;
     left: 24px;
     top: 117px;
@@ -33,7 +33,7 @@ body{
     line-height: 67px;
     background-color: rgba(67, 23, 87, 0.5);
     float: left;
-    width: 30%;
+    width: 25%;
     height: 100vh;
     border-right: 3px solid #943597;
 }
@@ -50,6 +50,20 @@ body{
     margin-bottom: 0;
     text-align: center;
     word-wrap: break-word;
+}
+
+#write{
+    position: fixed;
+    bottom: 5%;
+    width: 80%;
+}
+
+#text{
+    border-bottom: 2px solid #E944EC;
+    background-color: rgba(67, 23, 87, 0);
+    width: 80%;
+    height: 40px;
+    color: white;
 }
 
 #searchbar{
@@ -123,11 +137,14 @@ body{
 }
 
 #logged_as{
-    float: right;
+    position: fixed;
+    top: 5%;
+    right: 5%
     color: white;
     font-size: 28px;
     line-height: 33px;
-    position: absolute;
+    font-family: Roboto;
+    font-style: italic;
 }
 
 
