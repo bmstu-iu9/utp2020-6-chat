@@ -22,7 +22,7 @@ router.post('/', (req, res)=> {
       return res.sendStatus(500);
     }
     console.log(`user ${user.username} добавлен в БД`);
-  })
+
   let id
   collection.findOne({username: user.username}, (err, doc) => {
     if (err) {
@@ -45,6 +45,7 @@ router.post('/', (req, res)=> {
       return res.sendStatus(200);
     })
   })
+})
 
 })
 module.exports = router;
