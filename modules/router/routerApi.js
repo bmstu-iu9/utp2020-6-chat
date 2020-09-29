@@ -27,6 +27,12 @@ const changeIcon = require("../api/changeIcon");
 
 const changePassword = require("../api/changePassword")
 
+const getFriends = require("../api/getFriends")
+
+const addFriend = require("../api/addFriend")
+
+const getUserId = require("../api/getUserId")
+
 router.get('/', ()=>{})
 
 router.use('/auth', auth);
@@ -52,5 +58,11 @@ router.use('/changeName', changeName);
 router.use('/changePassword', changePassword);
 
 router.use('/changeIcon', changeIcon);
+
+router.use('/getFriends', getFriends);
+
+router.use('/addFriend', addFriend);
+
+router.use('/getUserId', getUserId);
 
 module.exports = router;

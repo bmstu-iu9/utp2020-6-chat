@@ -10,9 +10,10 @@ router.post('/', (req, res)=> {
     name: "DefaultName",
     icon: -1,
     username: req.body.username,
-    password: req.body.password
-
+    password: req.body.password,
+    friends : []
   };
+  console.log(123);
   const collection = req.app.locals.collectionUsers;
   const collectionChat= req.app.locals.collectionChat;
   collection.insertOne(user, (err, result) => {
