@@ -17,6 +17,12 @@ let users = []
 let messages = []
 
 
+let pickedUser = 0
+
+let currentUser = 0
+
+
+
 document.getElementById("help").onclick = () =>{
   if (document.getElementById('search_friends').style.display == "block"){
     document.getElementById('search_friends').style.display = "none"
@@ -25,15 +31,54 @@ document.getElementById("help").onclick = () =>{
   }
 }
 
-window.onload = ()=>{
+
+document.getElementById("menu_1").onclick = () =>{
+  if (document.getElementById('settings_menu').style.display == "block"){
+    document.getElementById('settings_menu').style.display = "none"
+  }else{
+    document.getElementById('settings_menu').style.display = "block"
+  }
+}
+
+submit_change.onclick = ()=>{
+  let password1 = document.getElementById("change_1").value;
+  let password2 = document.getElementById("change_2").value;
+  console.log(password1)
+  if(password1 === password2){
+    api.changePassword(currentUser, password1);
+    console.log("changed")
+  }
+}
+
+
+const changeChat = ()=>{
+  
+}
+
+const chatOnload =()=>{
+  
+}
+
+
+
+
+
+
+window.onload = async ()=>{
     if(getCookie('session') === ""){
         document.location.href = "http://localhost:3000";
     };
     //api.getMessages(getCookie('login'), getCookie('password')).then(a => messages.push(a));
-    console.log(messages);
-    api.getAllUsers().then(a => users.push(a));
-    console.log(users);
     
+    api.getAllUsers().then(a => users.push(a));
+
+
+    console.log(getCookie('login'))
+    
+    currentUser = await api.getUserId(getCookie('login'), getCookie('password'));
+
+
+
     api.getAllUsers().then(a =>  a.forEach(elem => {
       let divMessage = document.createElement('div');
       divMessage.className = 'messages';
@@ -43,17 +88,20 @@ window.onload = ()=>{
       divDate.className = 'date_time';
       let divText = document.createElement('div');
       divText.className = 'text_of_message';
+      divText.innerText = "11111111111111111111"
       let divicon = document.createElement('div');
       divicon.className = 'icon';
+      console.log(elem)
       divMessage.appendChild(divicon);
       divMessage.appendChild(divText);
       divMessage.appendChild(divDate);
       divMessage.appendChild(divUserName);
       document.getElementById("Friends").appendChild(divMessage);
+     
     }));
-    document.getElementById("logged_as").innerText = "Logged as " + getCookie('login');
-    let divIco = document.createElement('div');
-    
-    document.getElementById('logged_as').appendChild(divIco);
+    document.getElementById("textarea").innerText = "Напишите кому-нибудь)"  
+    document.getElementById("logged_as_1").innerText = "Logged as " + getCookie("login");
+    document.getElementById("settings_menu_name").innerText = getCookie("login");
+    console.log(currentUser)
 }
 

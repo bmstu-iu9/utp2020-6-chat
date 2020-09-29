@@ -80,6 +80,39 @@ class Api{
        return data;
     }
 
+    async getUserId(username, password) {
+        let data = "failed";
+        //alert(123);
+        data = await fetch(`${baseURL}/getUserId`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "username": username,
+                "password": password
+            })
+        })
+        return await data.json()
+    }
+
+   
+    async changePassword(id, password) {
+        let data = "failed";
+        //alert(123);
+        await fetch(`${baseURL}/changePassword`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "id": id,
+                "password": password
+            })
+        }).catch(err => {console.log(err)})
+        return data;
+      }
+
 
     async getMessages(login, password){
         let data = "failed";

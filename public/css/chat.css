@@ -8,6 +8,11 @@
     src: url('fonts/Roboto.ttf');
 }
 
+*{
+    margin:0;
+    padding: 0;
+}
+
 body{
     background-image: url("../images/AdobeStock_235492190_web_0.png");
     font-family: 'Roboto';
@@ -54,6 +59,19 @@ body{
     word-wrap: break-word;
 }
 
+
+#chat{
+    height: 80%;
+}
+
+#textarea{
+    position: fixed;
+    color: #FFFFFF;
+    top: 14%;
+    height: 78%;
+    width: 100%;
+}
+
 #write{
     position: fixed;
     bottom: 5%;
@@ -62,6 +80,7 @@ body{
 }
 
 #text{
+    position:relative;
     border-bottom: 2px solid #E944EC;
     background-color: rgba(67, 23, 87, 0);
     width: 80%;
@@ -86,6 +105,7 @@ body{
     margin-top:10%;
 }
 #search_in{
+    position: relative;
     background: #741C51;
     border-color: #741C51;
     border-radius: 9px;
@@ -103,8 +123,20 @@ body{
     display: inline;
 }
 
-#search_friends{
+#settings_menu{
+    display: none;
     position: absolute;
+    width: 406px;
+    height: 566px;
+    right: 10%;
+    top: 10%;
+    background: #8E54E9;
+    z-index: 100;
+}
+
+#search_friends{
+    z-index: 1000;
+    position:absolute;
     width: 30%;
     height: 70%;
     left: 10%;
@@ -177,10 +209,12 @@ body{
     height: 111px;
 }
 
-#messages{
+.messages{
     padding-top: 10px;
 }
 #Friends{
+    max-height: 85%;
+    overflow-y: scroll;
     padding-top: 10px;
 }
 
@@ -269,7 +303,7 @@ body{
 }
 
 #collocutor{
-    position: fixed;
+    position: absolute;
     top: 7%;
     left: 28%;
     right: 3%;
