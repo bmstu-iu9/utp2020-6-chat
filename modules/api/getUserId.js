@@ -10,9 +10,9 @@ router.post('/', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     const collection = req.app.locals.collectionUsers;
-    collection.find({username : username, password : password}, (err, obj) => {
+    collection.findOne({username : username, password : password}, (err, obj) => {
         if(err) return console.log(err);
-        res.json(id)
+        res.json(obj._id)
     });
 })
 
