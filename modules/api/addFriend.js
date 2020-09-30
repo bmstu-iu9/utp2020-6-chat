@@ -12,7 +12,6 @@ router.post('/', (req, res) => {
     const collection = req.app.locals.collectionUsers;
     collection.updateOne({_id : ObjectID(myId)}, {$push : {friends : friendId}}, (err) => {
         if(err) return console.log(err);
-        res.sendStatus(200);
     });
     collection.updateOne({_id : ObjectID(friendId)}, {$push : {friends : myId}}, (err) => {
         if(err) return console.log(err);

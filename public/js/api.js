@@ -69,15 +69,13 @@ class Api{
 
     async getAllUsers(){
         let data = "failed";
-        await fetch(`${baseURL}/getAllUsers`,{
+        data = await fetch(`${baseURL}/getAllUsers`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
               },
-        }).then(response => {
-            data = response.json();
-       }).catch(err => {console.log(err)})
-       return data;
+        })
+       return await data.json();
     }
 
     async getUserId(username, password) {
@@ -130,6 +128,19 @@ class Api{
        }).catch(err => {console.log(err)})
        return data;
     }
+
+    async addFriend(myid, id){
+        await fetch(`${baseURL}/addFriend`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "myId": myid,
+                "friendId": id
+            })
+        })
+      }
 }
 
 

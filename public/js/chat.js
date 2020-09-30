@@ -12,7 +12,7 @@ function getCookie(name) {
 
 
 
-let users = []
+let users =[]
 
 let messages = []
 
@@ -70,14 +70,9 @@ window.onload = async ()=>{
     };
     //api.getMessages(getCookie('login'), getCookie('password')).then(a => messages.push(a));
     
-    api.getAllUsers().then(a => users.push(a));
-
-
     console.log(getCookie('login'))
-    
     currentUser = await api.getUserId(getCookie('login'), getCookie('password'));
-
-
+    let i = 0;
 
     api.getAllUsers().then(a =>  a.forEach(elem => {
       let divMessage = document.createElement('div');
@@ -91,14 +86,24 @@ window.onload = async ()=>{
       divText.innerText = "11111111111111111111"
       let divicon = document.createElement('div');
       divicon.className = 'icon';
+      let buttonAddFriend = document.createElement('button');
+      buttonAddFriend.className = 'buttonAddFriend';
+      buttonAddFriend.innerText = 'Add';
+      buttonAddFriend.name = i;
+      buttonAddFriend.onclick = () =>{
+        api.addFriend(currentUser, elem._id);
+      }
       console.log(elem)
       divMessage.appendChild(divicon);
       divMessage.appendChild(divText);
       divMessage.appendChild(divDate);
       divMessage.appendChild(divUserName);
+      divMessage.appendChild(buttonAddFriend);
       document.getElementById("Friends").appendChild(divMessage);
-     
+      
     }));
+
+    
     document.getElementById("textarea").innerText = "Напишите кому-нибудь)"  
     document.getElementById("logged_as_1").innerText = "Logged as " + getCookie("login");
     document.getElementById("settings_menu_name").innerText = getCookie("login");
