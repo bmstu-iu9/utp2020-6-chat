@@ -233,6 +233,7 @@ body{
     color: white;
     font-style: italic;
     position: relative;
+    max-height: 80px;
 }
 
 #ava{
