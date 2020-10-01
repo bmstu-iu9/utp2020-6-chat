@@ -141,6 +141,21 @@ class Api{
             })
         })
       }
+
+      async getFriends(id) {
+        let data = "failed";
+        //alert(123);
+        data = await fetch(`${baseURL}/getFriends`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "id": id,
+            })
+        })
+        return await data.json()
+    }
 }
 
 

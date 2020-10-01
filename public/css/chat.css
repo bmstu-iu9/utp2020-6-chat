@@ -32,6 +32,10 @@ body{
     border: 2px solid #FA00FF;
     margin-bottom: 0;
 }
+#friends_list{
+    max-height: 85%;
+    overflow-y: scroll;
+}
 
 #dialogues{
     font-size: 75px;
