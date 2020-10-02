@@ -50,7 +50,7 @@ class Api{
 
     async send(name, to, message){
         
-        await fetch(`${baseURL}/send`,{
+        data = await fetch(`${baseURL}/addMessage`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,12 +58,10 @@ class Api{
             body: JSON.stringify({
                 "from": name,
                 "to": to,
-                "message": message
+                "cont": message
             })
-        }).then(response => {
-             data = response.json();
-        }).catch(err => {console.log(err)})
-        return data;
+        })
+        return await data.json();
     }
 
 
@@ -93,7 +91,21 @@ class Api{
         })
         return await data.json()
     }
-
+    async changeName(id, name) {
+        let data = "failed";
+        //alert(123);
+        await fetch(`${baseURL}/changeName`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                "id": id,
+                "name": name
+            })
+        }).catch(err => {console.log(err)})
+        return data;
+      }
    
     async changePassword(id, password) {
         let data = "failed";
@@ -114,20 +126,17 @@ class Api{
 
     async getMessages(login, password){
         let data = "failed";
-        await fetch(`${baseURL}/getMessages`,{
+        data = await fetch(`${baseURL}/getMessages`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({
-                "login" : login,
-                "password" : password
+                "username": login,
+                "password": password
             })
-        }).then(response => {
-            data = response.json();
-       }).catch(err => {console.log(err)})
-       return data;
-    }
+        })
+        return await data.json();}
 
     async addFriend(myid, id){
         await fetch(`${baseURL}/addFriend`,{

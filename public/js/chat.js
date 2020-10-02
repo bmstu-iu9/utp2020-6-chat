@@ -16,13 +16,9 @@ let users =[]
 
 let messages = []
 
-
-
 let pickedUser = 0
 
 let currentUser = 0
-
-
 
 document.getElementById("help").onclick = () =>{
   if (document.getElementById('search_friends').style.display == "block"){
@@ -47,8 +43,13 @@ submit_change.onclick = ()=>{
   console.log(password1)
   if(password1 === password2){
     api.changePassword(currentUser, password1);
-    console.log("changed")
+    console.log("changed");
   }
+}
+
+submit_change_name.onclick = ()=>{
+ let name = document.getElementById("change_name").value
+ api.changeName(currentUser, name)
 }
 
 
@@ -81,18 +82,74 @@ const chatOnload =()=>{
   
 }
 
+let direct_id = "";
+
+let currentUserName = ""
 
 let friends = []
 
+
 const reloadfriends = async ()=>{
+  
   document.getElementById('friends_list').innerHTML = '';
   await friends.forEach(a => {
-    let nameOfuser = document.createElement('h2');
+    let user = document.createElement('div');
+    user.id = "user_in_list";
+    let nameOfuser = document.createElement('p');
     nameOfuser.innerText = a.name;
     nameOfuser.id = a._id;
-    document.getElementById("friends_list").appendChild(nameOfuser);
+    user.onclick =() =>{
+      generateChat(a._id)
+    }
+    user.appendChild(nameOfuser);
+    document.getElementById("friends_list").appendChild(user);
+    if (a._id == currentUser){
+      document.getElementById("logged_as_1").innerText = "Logged as " + a.name;
+    }
   })
 }
+
+
+
+const generateChat = async (id) =>{
+  document.getElementById("textarea").innerHTML = ""
+  let dialog =[]
+  direct_id= id;
+  messages.forEach(a => {
+    if ((a.to === id && a.from === currentUser)|| (a.from === id && a.to === currentUser)){
+      dialog.push(a)
+    }
+  })
+  dialog.forEach( a=>{
+    let divOneMessage =document.createElement('div');
+    if(currentUser === a.to){
+      divOneMessage.id = 'div_one_Message_left';
+    } else{
+      divOneMessage.id = 'div_one_Message_right';
+    }
+    let text = document.createElement('p');
+    text.innerText = a.cont;
+    let data = document.createElement('p');
+    let x = new Date(a.data);
+    console.log(x)
+    data.innerText = x.getHours() + " " + x.getSeconds();
+    divOneMessage.appendChild(text);
+    divOneMessage.appendChild(data);
+    document.getElementById("textarea").appendChild(divOneMessage);
+  })
+}
+
+
+
+send_message.onclick =()=>{
+  
+    api.send(currentUser, friends[0]._id, "Говорит Москва");
+    alert("done");
+  
+}
+
+
+
 
 window.onload = async ()=>{
     if(getCookie('session') === ""){
@@ -125,7 +182,6 @@ window.onload = async ()=>{
           buttonAddFriend.name = i;
           buttonAddFriend.onclick = () =>{
             api.getFriends(currentUser).then(z =>{if(!z.includes(currentUser)){api.addFriend(currentUser, elem._id)}});
-            reloadfriends()
           }
         
           divMessage.appendChild(divicon);
@@ -137,8 +193,8 @@ window.onload = async ()=>{
           }
       reloadfriends()      
         }))};
-    document.getElementById("textarea").innerText = "Напишите кому-нибудь)"  
-    document.getElementById("logged_as_1").innerText = "Logged as " + getCookie("login");
-    document.getElementById("settings_menu_name").innerText = getCookie("login");
+        
+  messages = await api.getMessages(getCookie('login'), getCookie("password"));
+  document.getElementById("settings_menu_name").innerText = getCookie("login");
 }
 

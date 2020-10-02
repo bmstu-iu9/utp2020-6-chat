@@ -139,6 +139,24 @@ body{
     z-index: 100;
 }
 
+#user_in_list{
+
+    width: 100%;
+    height: 111px;
+    padding-top: 10px;
+
+    background: rgba(210, 98, 238, 0.5);
+}
+
+
+#text{
+    display: inline;
+}
+#send_message{
+    display: inline;
+}
+
+
 #search_friends{
     z-index: 1000;
     position:absolute;
