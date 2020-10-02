@@ -87,10 +87,10 @@ let friends = []
 const reloadfriends = async ()=>{
   document.getElementById('friends_list').innerHTML = '';
   await friends.forEach(a => {
-    let divFriend = document.createElement('div');
-    divFriend.innerText = a._id
-    divFriend.className = 'messages'
-    document.getElementById("friends_list").appendChild(divFriend) ;
+    let nameOfuser = document.createElement('h2');
+    nameOfuser.innerText = a.name;
+    nameOfuser.id = a._id;
+    document.getElementById("friends_list").appendChild(nameOfuser);
   })
 }
 
@@ -106,7 +106,6 @@ window.onload = async ()=>{
 
     // Добавляю список людей на добавления в друзья
     api.getAllUsers().then(a =>  a.forEach(elem => {
- // 123
 
       if (elem._id !== currentUser){ 
           let divMessage = document.createElement('div');
@@ -135,17 +134,9 @@ window.onload = async ()=>{
           divMessage.appendChild(divUserName);
           divMessage.appendChild(buttonAddFriend);
           document.getElementById("Friends").appendChild(divMessage);
-        
-
-
           }
       reloadfriends()      
         }))};
-
-    
-
-
-    
     document.getElementById("textarea").innerText = "Напишите кому-нибудь)"  
     document.getElementById("logged_as_1").innerText = "Logged as " + getCookie("login");
     document.getElementById("settings_menu_name").innerText = getCookie("login");
