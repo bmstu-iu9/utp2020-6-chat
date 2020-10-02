@@ -54,22 +54,9 @@ submit_change_name.onclick = ()=>{
 
 
 document.getElementById('logout').onclick = () => {
-  (function () {
-    var cookies = document.cookie.split("; ");
-    for (var c = 0; c < cookies.length; c++) {
-        var d = window.location.hostname.split(".");
-        while (d.length > 0) {
-            var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-            var p = location.pathname.split('/');
-            document.cookie = cookieBase + '/';
-            while (p.length > 0) {
-                document.cookie = cookieBase + p.join('/');
-                p.pop();
-            };
-            d.shift();
-        }
-    }
-})();
+  document.cookie=`login=`;
+  document.cookie=`password=`;
+  document.cookie =`session=`;
   document.location.href = "http://localhost:3000";
 }
 
@@ -127,12 +114,13 @@ const generateChat = async (id) =>{
     } else{
       divOneMessage.id = 'div_one_Message_right';
     }
+    console.log(a)
     let text = document.createElement('p');
     text.innerText = a.cont;
     let data = document.createElement('p');
-    let x = new Date(a.data);
-    console.log(x)
-    data.innerText = x.getHours() + " " + x.getSeconds();
+    let x = new Date(a.date);
+    console.log(a.date)
+    data.innerText = x.getHours() + " " + x.getMinutes();
     divOneMessage.appendChild(text);
     divOneMessage.appendChild(data);
     document.getElementById("textarea").appendChild(divOneMessage);
