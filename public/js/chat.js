@@ -106,7 +106,7 @@ window.onload = async ()=>{
 
     // Добавляю список людей на добавления в друзья
     api.getAllUsers().then(a =>  a.forEach(elem => {
-
+ // 123
 
       if (elem._id !== currentUser){ 
           let divMessage = document.createElement('div');
