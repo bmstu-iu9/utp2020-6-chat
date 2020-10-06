@@ -41,7 +41,6 @@ router.use('/auth', auth);
 
 router.use('/registration', registration);
 
-router.use('/send', send);
 
 router.use('/logout', logout);
 

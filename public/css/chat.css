@@ -32,6 +32,10 @@ body{
     border: 2px solid #FA00FF;
     margin-bottom: 0;
 }
+#friends_list{
+    max-height: 85%;
+    overflow-y: scroll;
+}
 
 #dialogues{
     font-size: 75px;
@@ -65,11 +69,14 @@ body{
 }
 
 #textarea{
+    box-sizing: border-box;
+    padding: 0 50px;  
     position: fixed;
     color: #FFFFFF;
     top: 14%;
-    height: 78%;
-    width: 100%;
+    height: 70%;
+    width: 75%;
+    overflow-y: scroll;
 }
 
 #write{
@@ -124,6 +131,7 @@ body{
 }
 
 #settings_menu{
+    border-radius: 27px;
     display: none;
     position: absolute;
     width: 406px;
@@ -133,6 +141,24 @@ body{
     background: #8E54E9;
     z-index: 100;
 }
+
+#user_in_list{
+
+    width: 100%;
+    height: 111px;
+    padding-top: 10px;
+
+    background: rgba(210, 98, 238, 0.5);
+}
+
+
+#text{
+    display: inline;
+}
+#send_message{
+    display: inline;
+}
+
 
 #search_friends{
     z-index: 1000;
@@ -233,6 +259,7 @@ body{
     color: white;
     font-style: italic;
     position: relative;
+    max-height: 80px;
 }
 
 #ava{
@@ -314,4 +341,10 @@ body{
 
 li{
     list-style-type: none;
+}
+
+#div_one_Message_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

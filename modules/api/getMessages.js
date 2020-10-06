@@ -21,10 +21,13 @@ router.post('/', (req, res) => {
       let messages
       collectionChat.findOne({ _id: doc._id }, (err, doc) => {
         if (err) console.log(err)
+        console.log(doc)
         messages=doc.messages
         console.log("found in Chat " + messages)
         messages.sort((a,b) => {
-          return (a.messages.date<b.messages.date)
+          console.log(a)
+          console.log(b)
+          return (a.date < b.date)
         })
         res.json(messages)
       })
