@@ -49,8 +49,8 @@ class Api{
       }
 
     async send(name, to, message){
-        
-        data = await fetch(`${baseURL}/addMessage`,{
+
+        fetch(`${baseURL}/addMessage`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ class Api{
                 "cont": message
             })
         })
-        return await data.json();
+        //return await data.json();
     }
 
 
@@ -106,7 +106,7 @@ class Api{
         }).catch(err => {console.log(err)})
         return data;
       }
-   
+
     async changePassword(id, password) {
         let data = "failed";
         //alert(123);

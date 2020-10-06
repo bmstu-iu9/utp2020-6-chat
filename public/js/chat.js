@@ -3,6 +3,16 @@
 
 import api from './api.js';
 
+const wsSend = (data) => {
+  if(!wsConnection.readyState){
+    setTimeout(() => {
+      wsSend(data);
+    }, 100);
+  } else {
+    wsConnection.send(data);
+  }
+};
+
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -62,11 +72,11 @@ document.getElementById('logout').onclick = () => {
 
 
 const changeChat = ()=>{
-  
+
 }
 
 const chatOnload =()=>{
-  
+
 }
 
 let direct_id = "";
@@ -75,9 +85,48 @@ let currentUserName = ""
 
 let friends = []
 
+const url = 'ws://localhost:3000';
+const connection = new WebSocket(url);
+
+let helpId = null;
+
+connection.onopen = () => {
+  console.log('connect');
+  const msg = {
+    login: getCookie('login'),
+    password: getCookie("password")
+  }
+  connection.send(JSON.stringify(msg));
+}
+
+connection.onmessage = e => {
+  try {
+    //console.log(e);
+    console.log('Получил');
+    let obj = JSON.parse(e.data);
+    console.log(obj)
+    messages = obj.messages;
+    if(obj.help){
+      if (direct_id){
+        reloadfriends();
+        generateChat(direct_id);
+      } else {
+        reloadfriends();
+    }}else{
+      const msg = {
+        login: getCookie('login'),
+        password: getCookie("password")
+      }
+      connection.send(JSON.stringify(msg));
+    }
+  
+  }catch(e) {
+    console.log(e);
+  }
+}
 
 const reloadfriends = async ()=>{
-  
+
   document.getElementById('friends_list').innerHTML = '';
   await friends.forEach(a => {
     let user = document.createElement('div');
@@ -85,12 +134,15 @@ const reloadfriends = async ()=>{
     let nameOfuser = document.createElement('p');
     nameOfuser.innerText = a.name;
     nameOfuser.id = a._id;
+    helpId = a._id;
     user.onclick =() =>{
       generateChat(a._id)
     }
     user.appendChild(nameOfuser);
     document.getElementById("friends_list").appendChild(user);
-    
+    if (a._id == currentUser){
+      document.getElementById("logged_as_1").innerText = "Logged as " + a.name;
+    }
   })
 }
 
@@ -118,7 +170,7 @@ const generateChat = async (id) =>{
     let data = document.createElement('p');
     let x = new Date(a.date);
     console.log(a.date)
-    data.innerText = x.getHours() + " " + x.getMinutes();
+    data.innerText = x.getHours() + ":" + x.getMinutes();
     divOneMessage.appendChild(text);
     divOneMessage.appendChild(data);
     document.getElementById("textarea").appendChild(divOneMessage);
@@ -128,10 +180,14 @@ const generateChat = async (id) =>{
 
 
 send_message.onclick =()=>{
-  
-    api.send(currentUser, friends[0]._id, document.getElementById('text').value);
-    alert("done");
-  
+    const text = document.getElementById('text').value;
+    document.getElementById('text').value = "";
+    api.send(currentUser, direct_id, text);
+    const msg = {
+      login: getCookie('login'),
+      password: getCookie("password")
+    }
+    connection.send(JSON.stringify(msg));
 }
 
 
@@ -149,10 +205,8 @@ window.onload = async ()=>{
 
     // Добавляю список людей на добавления в друзья
     api.getAllUsers().then(a =>  a.forEach(elem => {
-      if (elem._id == currentUser){
-        document.getElementById("logged_as_1").innerText = "Logged as " + elem.name;
-      }
-      if (elem._id !== currentUser){ 
+
+      if (elem._id !== currentUser){
           let divMessage = document.createElement('div');
           divMessage.className = 'messages';
           let divUserName = document.createElement('div');
@@ -170,9 +224,8 @@ window.onload = async ()=>{
           buttonAddFriend.name = i;
           buttonAddFriend.onclick = () =>{
             api.getFriends(currentUser).then(z =>{if(!z.includes(currentUser)){api.addFriend(currentUser, elem._id)}});
-            reloadfriends();
           }
-        
+
           divMessage.appendChild(divicon);
           divMessage.appendChild(divText);
           divMessage.appendChild(divDate);
@@ -180,11 +233,9 @@ window.onload = async ()=>{
           divMessage.appendChild(buttonAddFriend);
           document.getElementById("Friends").appendChild(divMessage);
           }
-      reloadfriends()      
+      reloadfriends()
         }))};
-        
-  messages = await api.getMessages(getCookie('login'), getCookie("password"));
-  document.getElementById('textarea').innerText ="Выберите чат"
+  //messages = await api.getMessages(getCookie('login'), getCookie("password"));
   document.getElementById("settings_menu_name").innerText = getCookie("login");
 }
 

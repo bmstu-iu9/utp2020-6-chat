@@ -69,11 +69,14 @@ body{
 }
 
 #textarea{
+    box-sizing: border-box;
+    padding: 0 50px;  
     position: fixed;
     color: #FFFFFF;
     top: 14%;
-    height: 78%;
-    width: 100%;
+    height: 70%;
+    width: 75%;
+    overflow-y: scroll;
 }
 
 #write{
@@ -338,4 +341,10 @@ body{
 
 li{
     list-style-type: none;
+}
+
+#div_one_Message_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
