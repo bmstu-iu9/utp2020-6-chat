@@ -3,11 +3,11 @@
 ***
 
 ## Разработчик
-Зайцев Арсений (teamlead, back-end): [@MuonSevasch](https://github.com/MuonSevasch)
-Горбатов Никита (back-end, database): [@GorbatovNik](https://github.com/GorbatovNik)
-Петухова Мария (front-end): [@petukhova-m](https://github.com/petukhova-m)
-Чубаров Арсен (front-end): [@chubarovars](https://github.com/chubarovars)
-Жакия Акжол (front-end): [@ZhakiyaK](https://github.com/ZhakiyaK)
+  Зайцев Арсений (teamlead, back-end): [@MuonSevasch](https://github.com/MuonSevasch)
+  Горбатов Никита (back-end, database): [@GorbatovNik](https://github.com/GorbatovNik)
+  Петухова Мария (front-end): [@petukhova-m](https://github.com/petukhova-m)
+  Чубаров Арсен (front-end): [@chubarovars](https://github.com/chubarovars)
+  Жакия Акжол (front-end): [@ZhakiyaK](https://github.com/ZhakiyaK)
 ***
 ## Инструкция к запуску:
 1. Клонируйте данный репозиторий:
