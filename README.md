@@ -4,7 +4,7 @@
 
 ## Разработчики:
 	- Зайцев Арсений (teamlead, back-end): [@MuonSevasch](https://github.com/MuonSevasch)
-	- Горбатов Никита (database): [@GorbatovNik](https://github.com/GorbatovNik)
+	- Горбатов Никита (back-end, database): [@GorbatovNik](https://github.com/GorbatovNik)
 	- Петухова Мария (front-end): [@petukhova-m](https://github.com/petukhova-m)
 	- Чубаров Арсен (front-end): [@chubarovars](https://github.com/chubarovars)
 	- Жакия Акжол (front-end): [@ZhakiyaK](https://github.com/ZhakiyaK)
